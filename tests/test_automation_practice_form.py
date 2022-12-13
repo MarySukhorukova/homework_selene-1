@@ -19,10 +19,8 @@ def test_filling_and_submitting_form(open_practice_form):
     browser.element('[for="hobbies-checkbox-1"]').click()
     browser.element('#uploadPicture').set_value(os.path.abspath('tests/Pytest_logo.svg.png'))
     browser.element('#currentAddress').set_value('Hogwarts').press_enter()
-    browser.element('#state').click()
-    browser.element("//div[text()='Haryana']").click()
-    browser.element('#city').click()
-    browser.element("//div[text()='Karnal']").click()
+    browser.element('#react-select-3-input').send_keys('Haryana').press_enter()
+    browser.element('#react-select-4-input').send_keys('Karnal').press_enter()
     browser.element('#submit').press_enter()
 
     browser.element('#example-modal-sizes-title-lg').should(have.text('Thanks for submitting the form'))
