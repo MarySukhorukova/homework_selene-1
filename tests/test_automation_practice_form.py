@@ -3,7 +3,7 @@ from selene.support.shared import browser
 import os
 
 
-def test_filling_and_submitting_form(browser_base_url):
+def test_filling_and_submitting_form():
     browser.open('/automation-practice-form')
     browser.element('#firstName').type('Harry')
     browser.element('#lastName').type('Potter')
