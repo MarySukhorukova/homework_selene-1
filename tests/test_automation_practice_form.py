@@ -3,21 +3,22 @@ from selene.support.shared import browser
 import os
 
 
-def test_filling_and_submitting_form(open_practice_form):
-    browser.element('#firstName').should(be.blank).type('Harry')
-    browser.element('#lastName').should(be.blank).type('Potter')
-    browser.element('#userEmail').should(be.blank).type('hp@test.com')
+def test_filling_and_submitting_form(browser_base_url):
+    browser.open('/automation-practice-form')
+    browser.element('#firstName').type('Harry')
+    browser.element('#lastName').type('Potter')
+    browser.element('#userEmail').type('hp@test.com')
     browser.element('[for=gender-radio-1]').click()
-    browser.element('#userNumber').should(be.blank).type('0123456789')
+    browser.element('#userNumber').type('0123456789')
     browser.element('#dateOfBirthInput').click()
     browser.element('.react-datepicker__month-select').click()
     browser.element('[value="6"]').click()
     browser.element('.react-datepicker__year-select').click()
     browser.element('[value="1980"]').click()
     browser.element('.react-datepicker__day--031').click()
-    browser.element('#subjectsInput').should(be.blank).type('Dark Arts')
+    browser.element('#subjectsInput').type('Dark Arts')
     browser.element('[for="hobbies-checkbox-1"]').click()
-    browser.element('#uploadPicture').set_value(os.path.abspath('tests/Pytest_logo.svg.png'))
+    browser.element('#uploadPicture').set_value(os.path.abspath('files/Pytest_logo.svg.png'))
     browser.element('#currentAddress').set_value('Hogwarts').press_enter()
     browser.element('#react-select-3-input').send_keys('Haryana').press_enter()
     browser.element('#react-select-4-input').send_keys('Karnal').press_enter()
