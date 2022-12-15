@@ -18,7 +18,8 @@ def test_filling_and_submitting_form():
     browser.element('.react-datepicker__day--031').click()
     browser.element('#subjectsInput').type('Arts').press_enter()
     browser.element('[for="hobbies-checkbox-1"]').click()
-    browser.element('#uploadPicture').set_value(os.path.abspath('files/Pytest_logo.svg.png'))
+    browser.element('#uploadPicture').set_value(
+        os.path.abspath(os.path.join(os.path.dirname(__file__), 'files', 'Pytest_logo.svg.png')))
     browser.element('#currentAddress').set_value('Hogwarts').press_enter()
     browser.element('#react-select-3-input').send_keys('Haryana').press_enter()
     browser.element('#react-select-4-input').send_keys('Karnal').press_enter()
